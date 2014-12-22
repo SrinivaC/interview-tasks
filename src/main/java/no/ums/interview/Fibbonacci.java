@@ -1,11 +1,13 @@
 package no.ums.interview;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.LongStream;
 
 /**
  * Tools to generate fibbonacci numbers.
  *
- * @author Ståle Undheim <su@ums.no>
+ * @author StÃ¥le Undheim <su@ums.no>
  */
 public interface Fibbonacci {
 
@@ -18,12 +20,14 @@ public interface Fibbonacci {
      *
      * @return a stream of fibonacci numbers
      */
+
     static LongStream stream() {
-        return LongStream.generate(() -> 1L);
+    	LongStream fib = LongStream.generate(new FibMaker());
+    	return fib;
     }
 
     static LongStream evenFibbonacciNumbers() {
-        return stream().filter((l) -> true);
+        return stream().filter((l) -> (l)%2 == 0);
     }
 
 }
