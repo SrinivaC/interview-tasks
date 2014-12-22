@@ -9,7 +9,7 @@ import static java.util.stream.Collectors.joining;
 
 /**
  * Sha1 hash helper.
- * @author Ståle Undheim <su@ums.no>
+ * @author StÃ¥le Undheim <su@ums.no>
  */
 public interface Sha1 {
 
@@ -23,7 +23,7 @@ public interface Sha1 {
      * @throws NoSuchAlgorithmException
      */
     public static String sha1(String source) throws NoSuchAlgorithmException {
-        return ByteHelper.bytesToHex(source.substring(0, Math.min(16, source.length())).getBytes(UTF8));
+        return ByteHelper.bytesToHex(source.getBytes());
     }
 
     /**
