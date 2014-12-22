@@ -1,12 +1,15 @@
 package no.ums.interview;
 
+import static java.util.stream.Collectors.joining;
+
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
  * FizzBuzz generator.
  *
- * @author Ståle Undheim <su@ums.no>
+ * @author StÃ¥le Undheim <su@ums.no>
  */
 public interface FizzBuzz {
 
@@ -22,7 +25,11 @@ public interface FizzBuzz {
      * @return FizzBuzzStream
      */
     static Stream<String> toFizzBuzzStream(IntStream intStream) {
-        return Stream.empty();
+    	return intStream
+        .boxed()
+        .map(x -> (x%3==0? "Fizz": "") + (x%5==0? "Buzz": "")+ ((x%3!=0)&&(x%5!=0)? x: ""));
     }
 
+
+    
 }
