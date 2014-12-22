@@ -1,0 +1,25 @@
+package no.ums.interview;
+
+import java.util.function.LongSupplier;
+import java.util.function.Supplier;
+
+/**
+ * Class to generate the Fibonacci series
+ *
+ * @author Srinivasan C
+ */
+
+public class FibMaker implements  LongSupplier{
+
+	private long previous = 0;
+	private long current = 1;
+	
+
+@Override
+public long getAsLong() {
+	long next = current + previous;
+	previous = current;
+	current = next;
+	return (previous);
+	}
+}
